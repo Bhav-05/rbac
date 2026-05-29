@@ -3,19 +3,35 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
-const authRoutes = require("./routes/authRoutes");
-const taskRoutes = require("./routes/taskRoutes");
+const authRoutes  = require("./routes/authRoutes");
+const taskRoutes  = require("./routes/taskRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 
 const app = express();
-app.use(cors());
+
+const allowedOrigins = [
+  "http://localhost:3000",
+  process.env.FRONTEND_URL,
+].filter(Boolean);
+
+app.use(cors({
+  origin: function(origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+}));
+
 app.use(express.json());
 
 app.get("/api/health", (req, res) => {
-  res.json({ status: "ok", message: "Server is running" });
+  res.json({ status: "ok", environment: process.env.NODE_ENV || "development" });
 });
 
-app.use("/api/auth", authRoutes);
+app.use("/api/auth",  authRoutes);
 app.use("/api/tasks", taskRoutes);
 app.use("/api/admin", adminRoutes);
 
@@ -29,7 +45,7 @@ mongoose
   .then(() => {
     console.log("MongoDB connected");
     app.listen(process.env.PORT || 5000, () => {
-      console.log("Server running on http://localhost:" + (process.env.PORT || 5000));
+      console.log("Server running on port " + (process.env.PORT || 5000));
     });
   })
   .catch((err) => {
