@@ -1,4 +1,4 @@
-# RoleBase - RBAC Task Management System
+﻿# RoleBase - RBAC Task Management System
 
 A production-grade full-stack MERN application implementing Role-Based Access Control (RBAC) with JWT authentication, activity logging, and a complete admin dashboard.
 
@@ -76,50 +76,50 @@ Every key action is tracked in MongoDB:
 
 ```
 rbac/
-├── backend/
-│   ├── controllers/
-│   │   ├── authController.js      # register, login, getMe
-│   │   ├── adminController.js     # admin CRUD operations
-│   │   └── taskController.js      # task CRUD with ownership
-│   ├── middleware/
-│   │   └── authMiddleware.js      # protect + adminOnly
-│   ├── models/
-│   │   ├── User.js                # role, status fields
-│   │   ├── Task.js                # userId ownership
-│   │   └── ActivityLog.js         # action tracking
-│   ├── routes/
-│   │   ├── authRoutes.js
-│   │   ├── taskRoutes.js
-│   │   └── adminRoutes.js
-│   ├── utils/
-│   │   ├── generateToken.js       # JWT generation
-│   │   └── logger.js              # reusable activity logger
-│   ├── server.js
-│   ├── .env.example
-│   └── package.json
-│
-└── frontend/
-    └── src/
-        ├── components/
-        │   ├── ProtectedRoute.jsx  # blocks unauthenticated
-        │   └── AdminRoute.jsx      # blocks non-admins
-        ├── context/
-        │   └── AuthContext.jsx     # global auth state
-        ├── layouts/
-        │   └── Sidebar.jsx         # role-based navigation
-        ├── pages/
-        │   ├── Login.jsx
-        │   ├── Register.jsx
-        │   ├── Dashboard.jsx       # user task manager
-        │   └── admin/
-        │       ├── AdminDashboard.jsx
-        │       ├── UserManagement.jsx
-        │       ├── TaskMonitor.jsx
-        │       └── ActivityLogs.jsx
-        ├── services/
-        │   └── api.js              # axios instance + interceptors
-        ├── App.jsx
-        └── index.css
+â”œâ”€â”€ backend/
+â”‚   â”œâ”€â”€ controllers/
+â”‚   â”‚   â”œâ”€â”€ authController.js      # register, login, getMe
+â”‚   â”‚   â”œâ”€â”€ adminController.js     # admin CRUD operations
+â”‚   â”‚   â””â”€â”€ taskController.js      # task CRUD with ownership
+â”‚   â”œâ”€â”€ middleware/
+â”‚   â”‚   â””â”€â”€ authMiddleware.js      # protect + adminOnly
+â”‚   â”œâ”€â”€ models/
+â”‚   â”‚   â”œâ”€â”€ User.js                # role, status fields
+â”‚   â”‚   â”œâ”€â”€ Task.js                # userId ownership
+â”‚   â”‚   â””â”€â”€ ActivityLog.js         # action tracking
+â”‚   â”œâ”€â”€ routes/
+â”‚   â”‚   â”œâ”€â”€ authRoutes.js
+â”‚   â”‚   â”œâ”€â”€ taskRoutes.js
+â”‚   â”‚   â””â”€â”€ adminRoutes.js
+â”‚   â”œâ”€â”€ utils/
+â”‚   â”‚   â”œâ”€â”€ generateToken.js       # JWT generation
+â”‚   â”‚   â””â”€â”€ logger.js              # reusable activity logger
+â”‚   â”œâ”€â”€ server.js
+â”‚   â”œâ”€â”€ .env.example
+â”‚   â””â”€â”€ package.json
+â”‚
+â””â”€â”€ frontend/
+    â””â”€â”€ src/
+        â”œâ”€â”€ components/
+        â”‚   â”œâ”€â”€ ProtectedRoute.jsx  # blocks unauthenticated
+        â”‚   â””â”€â”€ AdminRoute.jsx      # blocks non-admins
+        â”œâ”€â”€ context/
+        â”‚   â””â”€â”€ AuthContext.jsx     # global auth state
+        â”œâ”€â”€ layouts/
+        â”‚   â””â”€â”€ Sidebar.jsx         # role-based navigation
+        â”œâ”€â”€ pages/
+        â”‚   â”œâ”€â”€ Login.jsx
+        â”‚   â”œâ”€â”€ Register.jsx
+        â”‚   â”œâ”€â”€ Dashboard.jsx       # user task manager
+        â”‚   â””â”€â”€ admin/
+        â”‚       â”œâ”€â”€ AdminDashboard.jsx
+        â”‚       â”œâ”€â”€ UserManagement.jsx
+        â”‚       â”œâ”€â”€ TaskMonitor.jsx
+        â”‚       â””â”€â”€ ActivityLogs.jsx
+        â”œâ”€â”€ services/
+        â”‚   â””â”€â”€ api.js              # axios instance + interceptors
+        â”œâ”€â”€ App.jsx
+        â””â”€â”€ index.css
 ```
 
 ---
@@ -242,3 +242,4 @@ feature/rbac-admin-dashboard  - feature branch (PR raised)
 | Variable | Description | Example |
 |----------|-------------|---------|
 | REACT_APP_API_URL | Backend API base URL | https://api.onrender.com/api |
+
