@@ -1,8 +1,8 @@
-﻿# RoleBase â€” RBAC Task Management System
+# RoleBase - RBAC Task Management System
 
 A production-grade full-stack MERN application implementing Role-Based Access Control (RBAC) with JWT authentication, activity logging, and a complete admin dashboard.
 
-Built for: **Avidus Interactive â€” Software Engineer Assignment**
+Built for: **Avidus Interactive - Software Engineer Assignment**
 
 ---
 
@@ -47,7 +47,7 @@ Built for: **Avidus Interactive â€” Software Engineer Assignment**
 
 | Feature | User | Admin |
 |---------|------|-------|
-| Create tasks | Own only | â€” |
+| Create tasks | Own only | -- |
 | View tasks | Own only | All users |
 | Update tasks | Own only | All users |
 | Delete tasks | Own only | All users |
@@ -59,16 +59,16 @@ Built for: **Avidus Interactive â€” Software Engineer Assignment**
 
 ### Activity Logging
 Every key action is tracked in MongoDB:
-- `LOGIN` â€” user signed in
-- `TASK_CREATED` â€” task created
-- `TASK_UPDATED` â€” task status changed
-- `TASK_DELETED` â€” task removed
+- `LOGIN` - user signed in
+- `TASK_CREATED` - task created
+- `TASK_UPDATED` - task status changed
+- `TASK_DELETED` - task removed
 
 ### Admin Dashboard
-- Analytics cards â€” total users, tasks, completed, pending
-- User Management â€” view, activate/deactivate, delete users
-- Task Monitor â€” view all tasks across all users, filter by status
-- Activity Logs â€” full audit trail with timestamps
+- Analytics cards - total users, tasks, completed, pending
+- User Management - view, activate/deactivate, delete users
+- Task Monitor - view all tasks across all users, filter by status
+- Activity Logs - full audit trail with timestamps
 
 ---
 
@@ -76,50 +76,50 @@ Every key action is tracked in MongoDB:
 
 ```
 rbac/
-â”œâ”€â”€ backend/
-â”‚   â”œâ”€â”€ controllers/
-â”‚   â”‚   â”œâ”€â”€ authController.js      # register, login, getMe
-â”‚   â”‚   â”œâ”€â”€ adminController.js     # admin CRUD operations
-â”‚   â”‚   â””â”€â”€ taskController.js      # task CRUD with ownership
-â”‚   â”œâ”€â”€ middleware/
-â”‚   â”‚   â””â”€â”€ authMiddleware.js      # protect + adminOnly
-â”‚   â”œâ”€â”€ models/
-â”‚   â”‚   â”œâ”€â”€ User.js                # role, status fields
-â”‚   â”‚   â”œâ”€â”€ Task.js                # userId ownership
-â”‚   â”‚   â””â”€â”€ ActivityLog.js         # action tracking
-â”‚   â”œâ”€â”€ routes/
-â”‚   â”‚   â”œâ”€â”€ authRoutes.js
-â”‚   â”‚   â”œâ”€â”€ taskRoutes.js
-â”‚   â”‚   â””â”€â”€ adminRoutes.js
-â”‚   â”œâ”€â”€ utils/
-â”‚   â”‚   â”œâ”€â”€ generateToken.js       # JWT generation
-â”‚   â”‚   â””â”€â”€ logger.js              # reusable activity logger
-â”‚   â”œâ”€â”€ server.js
-â”‚   â”œâ”€â”€ .env.example
-â”‚   â””â”€â”€ package.json
-â”‚
-â””â”€â”€ frontend/
-    â””â”€â”€ src/
-        â”œâ”€â”€ components/
-        â”‚   â”œâ”€â”€ ProtectedRoute.jsx  # blocks unauthenticated
-        â”‚   â””â”€â”€ AdminRoute.jsx      # blocks non-admins
-        â”œâ”€â”€ context/
-        â”‚   â””â”€â”€ AuthContext.jsx     # global auth state
-        â”œâ”€â”€ layouts/
-        â”‚   â””â”€â”€ Sidebar.jsx         # role-based navigation
-        â”œâ”€â”€ pages/
-        â”‚   â”œâ”€â”€ Login.jsx
-        â”‚   â”œâ”€â”€ Register.jsx
-        â”‚   â”œâ”€â”€ Dashboard.jsx       # user task manager
-        â”‚   â””â”€â”€ admin/
-        â”‚       â”œâ”€â”€ AdminDashboard.jsx
-        â”‚       â”œâ”€â”€ UserManagement.jsx
-        â”‚       â”œâ”€â”€ TaskMonitor.jsx
-        â”‚       â””â”€â”€ ActivityLogs.jsx
-        â”œâ”€â”€ services/
-        â”‚   â””â”€â”€ api.js              # axios instance + interceptors
-        â”œâ”€â”€ App.jsx
-        â””â”€â”€ index.css
+├── backend/
+│   ├── controllers/
+│   │   ├── authController.js      # register, login, getMe
+│   │   ├── adminController.js     # admin CRUD operations
+│   │   └── taskController.js      # task CRUD with ownership
+│   ├── middleware/
+│   │   └── authMiddleware.js      # protect + adminOnly
+│   ├── models/
+│   │   ├── User.js                # role, status fields
+│   │   ├── Task.js                # userId ownership
+│   │   └── ActivityLog.js         # action tracking
+│   ├── routes/
+│   │   ├── authRoutes.js
+│   │   ├── taskRoutes.js
+│   │   └── adminRoutes.js
+│   ├── utils/
+│   │   ├── generateToken.js       # JWT generation
+│   │   └── logger.js              # reusable activity logger
+│   ├── server.js
+│   ├── .env.example
+│   └── package.json
+│
+└── frontend/
+    └── src/
+        ├── components/
+        │   ├── ProtectedRoute.jsx  # blocks unauthenticated
+        │   └── AdminRoute.jsx      # blocks non-admins
+        ├── context/
+        │   └── AuthContext.jsx     # global auth state
+        ├── layouts/
+        │   └── Sidebar.jsx         # role-based navigation
+        ├── pages/
+        │   ├── Login.jsx
+        │   ├── Register.jsx
+        │   ├── Dashboard.jsx       # user task manager
+        │   └── admin/
+        │       ├── AdminDashboard.jsx
+        │       ├── UserManagement.jsx
+        │       ├── TaskMonitor.jsx
+        │       └── ActivityLogs.jsx
+        ├── services/
+        │   └── api.js              # axios instance + interceptors
+        ├── App.jsx
+        └── index.css
 ```
 
 ---
@@ -206,13 +206,13 @@ App runs at `http://localhost:3000`
 
 ---
 
-## Security Highlights
+## Security
 
-- Passwords never stored in plain text â€” bcrypt with 12 rounds
+- Passwords never stored in plain text - bcrypt with 12 rounds
 - JWT secret stored only in environment variables
-- All admin routes validated server-side â€” never trust frontend
-- Task ownership enforced in every controller, not just frontend
-- Deactivated users blocked at middleware level even with valid token
+- All admin routes validated server-side
+- Task ownership enforced in every controller
+- Deactivated users blocked at middleware level
 - CORS restricted to known frontend origin in production
 
 ---
@@ -220,18 +220,13 @@ App runs at `http://localhost:3000`
 ## Git Workflow
 
 ```
-main                    â† production-ready code
-feature/rbac-admin-dashboard  â† feature branch (PR raised)
+main                          - production-ready code
+feature/rbac-admin-dashboard  - feature branch (PR raised)
 ```
-
-### Branch strategy
-- All feature work done on `feature/rbac-admin-dashboard`
-- PR raised against `main`
-- Code reviewed before merge
 
 ---
 
-## Environment Variables Reference
+## Environment Variables
 
 ### Backend
 | Variable | Description | Example |
@@ -247,4 +242,3 @@ feature/rbac-admin-dashboard  â† feature branch (PR raised)
 | Variable | Description | Example |
 |----------|-------------|---------|
 | REACT_APP_API_URL | Backend API base URL | https://api.onrender.com/api |
-
