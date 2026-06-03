@@ -2,7 +2,6 @@
 
 A production-grade full-stack MERN application implementing Role-Based Access Control (RBAC) with JWT authentication, activity logging, and a complete admin dashboard.
 
-Built for: **Avidus Interactive - Software Engineer Assignment**
 
 ---
 
